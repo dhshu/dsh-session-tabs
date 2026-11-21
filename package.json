@@ -1,0 +1,58 @@
+{
+  "name": "dsh-session-tabs",
+  "version": "0.4.0",
+  "description": "Browser-style conversation tabs for DeepSeek Harness, placed in the window title row",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhshu/dsh-session-tabs.git"
+  },
+  "homepage": "https://github.com/dhshu/dsh-session-tabs#readme",
+  "bugs": {
+    "url": "https://github.com/dhshu/dsh-session-tabs/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "conversation-tabs",
+    "session-tabs",
+    "cordis"
+  ],
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ],
+      "external": [
+        "react"
+      ]
+    }
+  }
+}
